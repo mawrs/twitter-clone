@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chirp
 
-## Getting Started
+A small Twitter-style social feed built with Next.js (App Router) and React.
 
-First, run the development server:
+## Run it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Home feed with "For you" and "Following" tabs
+- Posting with a 280-character limit
+- Threaded replies
+- Likes and reposts
+- Deleting your own posts, which also removes their replies
+- Profiles with Posts, Replies and Likes tabs
+- Following and unfollowing
+- Notifications
+- Search, trending hashtags and follow suggestions
+- Light and dark themes, plus a phone layout
 
-## Learn More
+## How it works
 
-To learn more about Next.js, take a look at the following resources:
+- `app/`: pages, plus the Server Actions for every change (`app/actions.ts`)
+- `components/`: UI components
+- `lib/db.ts`: JSON file storage, seeded with sample data on first run
+- `lib/queries.ts`: reads that shape the data for each page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Limitations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This is a local demo, not something to deploy as is:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **No real login.** The account menu in the sidebar switches between the sample
+  users with no password.
+- **Single-server storage.** Data lives in `data/db.json`, which isn't committed.
+  Delete that file to reset to the sample data.
